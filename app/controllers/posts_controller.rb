@@ -1,20 +1,22 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :owned_post, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Create post was successfully"
+      flash[:success] = "Your post has been created!"
       redirect_to posts_path
     else
+      flash.now[:alert] = "Your new post couldn't be created!  Please check the form."
       render :new
     end
   end
@@ -32,6 +34,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post was updated successfully"
       redirect_to @post
     else
+      flash.now[:alert] = "Update failed.  Please check the form."
       render :edit
     end
   end
@@ -48,5 +51,12 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:image, :caption)
+    end
+
+    def owned_post
+      unless current_user == @post.user
+        flash[:alert] = "That post doesn't belong to you!"
+        redirect_to root_path
+      end
     end
 end
