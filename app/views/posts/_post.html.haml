@@ -17,8 +17,8 @@
         .comments{id: "comments_#{post.id}"}
           - if post.comments
             = render post.comments, post: post
-      .comment-like-form.row
-        .like-button.col-sm-1
+    .comment-like-form.row
+      .like-button.col-sm-1
         %span(class="glyphicon glyphicon-heart-empty")
       .comment-form.col-sm-11
         = form_for([post, post.comments.build], remote: true) do |f|

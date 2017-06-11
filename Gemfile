@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'kaminari'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

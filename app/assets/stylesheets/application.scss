@@ -15,12 +15,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
+.alert {
+  margin-bottom: 0px;
+}
+
 /* ## NAVBAR CUSTOMISATIONS ## */
+
+.navbar {
+  margin-bottom: 0px;
+}
 
 .navbar-brand {
   a {
@@ -30,14 +43,13 @@ body {
 
 .navbar-default {
   background-color: #fff;
-  height: 54px;
   .navbar-nav li a {
     color: #125688;
   }
 }
 
 .navbar-container {
-  width: 70%;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -92,7 +104,6 @@ body {
   }
   .user-name {
     font-weight: 500;
-    margin-right: 0.3em;
     color: #125688;
     font-size: 15px;
   }
@@ -105,13 +116,12 @@ body {
       font-weight: 500;
       margin-right: 0.3em;
     }
-    .delete-comment {
+    .delete-comment-icon {
       float: right;
       color: #515151;
     }
   }
   margin-bottom: 7px;
-  padding-top: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 10px;
@@ -139,18 +149,91 @@ body {
   justify-content: center;
 }
 
-/* ## Wrapper and styling for the new and edit views ## */
-
-.form-wrapper {
-  width: 60%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
+/* ## Wrapper and styling for the new, edit & devise views ## */
 
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.registration-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image_url('register_background.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.log-in {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: none;
+}
+
+.panel {
+  border-radius: 8px;
+}
+
+.panel-heading{
+  h1 {
+    text-align: center;
+  }
+}
+
+.login-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('login_background.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.forgot-password-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('login_background.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#image-preview {
+  margin: 0px auto;
+}
+
+#post_image {
+  padding: 1em;
+  margin: 0px auto;
+}
+
+#paginator {
+  color: #4090DB;
+  height: 120px;
+  width: 120px;
+  margin: 60px auto 40px;
+  position: relative;
+  display: table;
+  border: 2px solid #4090DB;
+  border-radius: 50%;
+  :hover {
+    border: 1px solid #2D6DA8;
+    border-radius: 50%;
+  }
+}
+
+#load_more {
+  display: table-cell;
+  font-size: 12px;
+  padding: 0px 9px;
+  vertical-align: middle;
+  text-decoration: none;
+  a :hover {
+    color: #2D6DA8;
+  }
 }
