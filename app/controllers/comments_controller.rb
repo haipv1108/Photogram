@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_post
 
+  def index
+    @comments = @post.comments.order(created_at: :asc)
+
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.js
+    end
+  end
+
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
