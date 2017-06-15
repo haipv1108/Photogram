@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get ':user_name', to: 'profiles#show', as: :profile
-  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile
-  patch ':user_name/edit', to: 'profiles#update', as: :update_profile
+  get ':user_name', to: 'profiles#show', as: :profile, constraints: {:user_name => /[\w+\.]+/}
+  get ':user_name/edit', to: 'profiles#edit', as: :edit_profile, constraints: {:user_name => /[\w+\.]+/}
+  patch ':user_name/edit', to: 'profiles#update', as: :update_profile, constraints: {:user_name => /[\w+\.]+/}
 end

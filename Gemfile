@@ -15,7 +15,6 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'kaminari'
 gem 'jquery-turbolinks'
-gem 'friendly_id'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
