@@ -159,17 +159,27 @@ body {
 .registration-bg {
   padding-top: 4em;
   height: 100%;
-  background-image: image_url('register_background.jpg');
+  background-image: image-url('regbackg.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.log-in {
+.login-bg {
+  padding-top: 4em;
+  height: 100%;
+  background-image: image-url('loginbg.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.log-in{
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align:center;
   border: none;
 }
 
@@ -183,34 +193,15 @@ body {
   }
 }
 
-.login-bg {
-  padding-top: 4em;
-  height: 100%;
-  background-image: image-url('login_background.jpg');
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.forgot-password-bg {
-  padding-top: 4em;
-  height: 100%;
-  background-image: image-url('login_background.jpg');
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 #image-preview {
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 #post_image {
   padding: 1em;
   margin: 0px auto;
 }
+
 
 #paginator {
   color: #4090DB;
@@ -247,8 +238,9 @@ body {
   }
 }
 
-#user_avatar {
-  margin: 20px auto;
+.comment-submit-button {
+  position: absolute;
+  left: -9999px;
 }
 
 .profile-header {
@@ -277,4 +269,29 @@ body {
 
 .profile-bio {
   margin-top: 20px;
+}
+
+#user_bio {
+  border: 1px solid gray;
+}
+
+#user_avatar {
+  padding: 1em;
+  margin: 0px auto;
+}
+
+.likes {
+  margin-top: 20px;
+  margin-bottom: 7px;
+  color: #4b4f54;
+}
+
+.like {
+  text-decoration: none;
+  color: red;
+}
+
+.like-button a:hover, a:focus {
+  text-decoration: none;
+  color: red;
 }
