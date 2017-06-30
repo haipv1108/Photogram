@@ -22,6 +22,7 @@ class User < ApplicationRecord
             presence: true,
             length: { minimum: 4, maximum: 16 },
             uniqueness: { :case_sensitive => false }
+  validates :email, uniqueness: true
 
   def follow(user_id)
     following_relationships.create(following_id: user_id)
