@@ -1,7 +1,12 @@
-class Notification < ApplicationRecord
-  belongs_to :notified_by, class_name: 'User'
+class Notification
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :identifier, type: Integer
+  field :notice_type, type: String
+  field :read, type: Boolean, default: false
   belongs_to :user
+  belongs_to :notified_by, class_name: 'User'
   belongs_to :post
 
-  validates :user_id, :notified_by_id, :post_id, :identifier, :notice_type, presence: true
 end

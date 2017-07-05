@@ -23,31 +23,44 @@ module PostsHelper
                    remote: true,
                    class: "glyphicon #{liked_post post}" if current_user.voted_for? post
     link_to '', like_post_path(post.id),
-                   remote: true,
-                   class: "glyphicon #{liked_post post}"
+            remote: true,
+            class: "glyphicon #{liked_post post}"
+  end
+
+  def likers_of(post)
+    # votes = post.up_voters
+    # user_names = []
+    # unless votes.blank?
+    #   votes.each do |voter|
+    #     user_names.push(link_to voter.user_name,
+    #                             profile_path(voter.user_name),
+    #                             class: 'user-name')
+    #   end
+    #   user_names.to_sentence.html_safe + like_plural(votes)
+    # end
   end
 
   private
 
-    def like_plural(votes)
-      return ' like this' if votes.count > 1
-      ' likes this'
-    end
+  def like_plural(votes)
+    return ' like this' if votes.count > 1
+    ' likes this'
+  end
 
-    def list_likers(votes)
-      user_names = []
-      unless votes.blank?
-        votes.voters.each do |voter|
-          user_names.push(link_to voter.user_name,
-                                  profile_path(voter.user_name),
-                                  class: 'user-name')
-        end
-        user_names.to_sentence.html_safe + like_plural(votes)
+  def list_likers(votes)
+    user_names = []
+    unless votes.blank?
+      votes.voters.each do |voter|
+        user_names.push(link_to voter.user_name,
+                                profile_path(voter.user_name),
+                                class: 'user-name')
       end
+      user_names.to_sentence.html_safe + like_plural(votes)
     end
+  end
 
-    def count_likers(votes)
-      vote_count = votes.size
-      vote_count.to_s + ' likes'
-    end
+  def count_likers(votes)
+    vote_count = votes.size
+    vote_count.to_s + ' likes'
+  end
 end

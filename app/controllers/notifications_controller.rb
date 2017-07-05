@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
 
   def link_through
     @notification = Notification.find(params[:id])
-    @notification.update read: true
+    @notification.update_attribute(:read, true)
     redirect_to post_path @notification.post
   end
 end

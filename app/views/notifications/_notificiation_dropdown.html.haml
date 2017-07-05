@@ -5,6 +5,6 @@
       %span.glyphicon.glyphicon-flag
     %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
       %li.dropdown-header.text-center Notifications
-      = render current_user.notifications.where(read: false).order('created_at DESC').last(5)
+      = render current_user.notifications.where(read: false).order('created_at desc').limit(5)
       %li.divider{ role: 'separator' }
         %li.text-center= link_to 'View All', notifications_path

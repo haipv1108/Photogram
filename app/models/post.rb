@@ -1,17 +1,14 @@
-class Post < ApplicationRecord
-  acts_as_votable
+class Post
+  include Mongoid::Document
+  include Mongoid::Paperclip
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy, inverse_of: :post
   has_many :comments, dependent: :destroy
-  has_many :notifications, dependent: :destroy
 
+  field :caption, type: String
+  has_mongoid_attached_file :image, styles: { :medium => "640x" }
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  validates :caption, :user_id, presence: true
   validates :image, presence: true
-  validates :user_id, presence: true
-  validates :caption, presence: true, length: { minimum: 3, maximum: 300 }
-
-  has_attached_file :image, styles: { :medium => "640x" }
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\z/
-
-  scope :of_followed_users, -> (following_users) { where user_id: following_users }
-
 end
