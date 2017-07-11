@@ -2,7 +2,6 @@ class User
   include Mongoid::Document
   include Mongoid::Paperclip
 
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -16,7 +15,11 @@ class User
   field :encrypted_password, type: String, default: ""
 
   field :user_name,          type: String
-  validates :user_name, presence: true, length: { minimum: 4, maximum: 16 }
+  validates :user_name,
+            presence: true,
+            length: { minimum: 4, maximum: 16 },
+            uniqueness: { :case_sensitive => false }
+  validates :email, uniqueness: true
 
   has_mongoid_attached_file :avatar, styles: { medium: '152x152#' }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

@@ -6,4 +6,7 @@ FactoryGirl.define do
     f.email { Faker::Internet.email }
     f.password "password"
   end
+  factory :invalid_user, parent: :user do |f|
+    f.caption "aa"
+  end
 end

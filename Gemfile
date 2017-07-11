@@ -28,6 +28,15 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem "mongoid-rspec"
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
 end
 
 group :development do
