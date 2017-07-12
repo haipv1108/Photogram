@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.feature "Login", type: :feature do
   let(:user) { FactoryGirl.create(:user) }
 
-  describe 'initial login' do
+  feature 'initial login' do
     context 'normal user' do
       before do
         login_with user
       end
 
-      it 'should login successful to home page' do
+      it 'should login successful to home page', js: true do
         expect(current_path).to eq root_path
       end
     end
@@ -26,12 +26,12 @@ RSpec.feature "Login", type: :feature do
     end
   end
 
-  describe 'logout' do
+  feature 'logout' do
     before do
       login_with user
     end
 
-    it 'should logout successful to login page' do
+    it 'should logout successful to login page', js: true do
       logout
       expect(current_path).to eq new_user_session_path
     end

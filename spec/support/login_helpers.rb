@@ -9,6 +9,8 @@ module LoginHelpers
   end
 
   def logout
-    visit destroy_user_session_path
+    visit root_path
+    click_link 'Logout'
+    # visit destroy_user_session_path
   end
 end

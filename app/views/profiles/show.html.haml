@@ -11,7 +11,7 @@
           - if @user == current_user
             = link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn edit-button'
           - else
-            - if current_user_is_following(current_user, @user)
+            - if current_user_is_following(current_user, @user) != nil
               = link_to 'Following', unfollow_path,
                                      remote: true,
                                      class: 'btn unfollow-button',
